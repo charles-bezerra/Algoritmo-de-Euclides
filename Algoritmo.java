@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.lang.System;
 
 public class Algoritmo
 {
@@ -16,47 +17,31 @@ public class Algoritmo
 
         System.out.println(al.Calculo(a,b));
     }
-    public int Calculo(int a , int b)
-    {
+    public int Calculo(int a,int b){
       int aux1;
       int aux2;
-      if(a==0 || b==0)
-      {
-        this.resultado = 0;
+
+      if(a>b){
+        while (resto != 0){
+            aux1 = a;
+            aux2 = b;
+            b = a % b;
+            a = aux2;
+            resto = aux1%aux2;
+            resultado = aux2;
+        }
+      }else if(b>a){
+        while (resto != 0){
+            aux1 = b;
+            aux2 = a;
+            a = b % a;
+            b = aux2;
+            resto = aux1%aux2;
+            resultado = aux2;
+        }
+      }else{
+        resultado = a;
       }
-      else{
-          if(a>b)
-          {
-            while (this.resto != 0)
-            {
-                aux1 = a;
-                aux2 = b;
-
-                b = a % b;
-
-                a = aux2;
-                this.resto = aux1%aux2;
-                this.resultado = aux2;
-            }
-          }
-          else if(b>a)
-          {
-            while (this.resto != 0)
-            {
-                aux1 = b;
-                aux2 = a;
-
-                a = b % a;
-
-                b = aux2;
-                this.resto = aux1%aux2;
-                this.resultado = aux2;
-            }
-          }
-          else{
-            this.resultado = a;
-          }
-      }
-      return this.resultado;
+      return resultado;
     }
 }
