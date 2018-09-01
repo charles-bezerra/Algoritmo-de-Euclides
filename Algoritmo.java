@@ -14,14 +14,21 @@ public class Algoritmo
         int b = sc.nextInt();
 
         Algoritmo al = new Algoritmo();
-
-        System.out.println(al.Calculo(a,b));
+        if(al.Calculo(a,b) == 0){
+            System.out.println("Solução impossível, pois nenhum número divide 0 ou o inverso!");
+        }
+        else{
+            System.out.println(al.Calculo(a,b));
+        }
     }
     public int Calculo(int a,int b){
       int aux1;
       int aux2;
 
-      if(a>b){
+      if(a == 0 || b == 0){
+        return 0;
+      }
+      else if(a>b){
         while (resto != 0){
             aux1 = a;
             aux2 = b;
